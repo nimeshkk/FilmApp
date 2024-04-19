@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity, TextInput, Alert } from 'react-nat
 import tw from 'twrnc';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
+// import axios from 'axios';
 
 const SignInPage = () => {
   const navigation = useNavigation();
