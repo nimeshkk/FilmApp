@@ -4,8 +4,10 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import tw from 'twrnc';
 import CustomNavBar from '../navigationbar/navBar';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native'; 
 
 const PaymentSuccess = () => {
+  const navigation = useNavigation();
   return (
     <View style={tw`flex-1  bg-black`}>
       <View style={tw`flex-2 items-center justify-center`}>
@@ -33,7 +35,7 @@ const PaymentSuccess = () => {
       end={{ x: 1, y: 0 }}
       style={tw`rounded-xl w-340px h-40px items-center justify-center`}
     >
-      <TouchableOpacity style={tw`w-full h-full items-center justify-center`}>
+      <TouchableOpacity style={tw`w-full h-full items-center justify-center`} onPress={() => navigation.navigate('OTP')}>
         <Text style={tw`text-white text-lg items-center justify-center`}>Send Code</Text>
       </TouchableOpacity>
     </LinearGradient>

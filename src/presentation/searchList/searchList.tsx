@@ -1,12 +1,14 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { View, Text, TextInput, FlatList, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; 
 import tw from 'twrnc';
 import CustomNavBar from '../navigationbar/navBar';
 import LinearGradient from 'react-native-linear-gradient';
 
 const SearchListPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const navigation = useNavigation(); 
 
   // Sample data for items
   const items = [
@@ -23,15 +25,15 @@ const SearchListPage = () => {
       <View style={tw`flex-row items-center`}>
         <Image source={item.image} style={tw`w-101px h-140px rounded-md`} resizeMode="cover" />
         <View style={tw`flex-col ml-4 w-240px h-150px justify-between`}>
-        <View style={tw`flex-row items-center justify-between `}>
+          <View style={tw`flex-row items-center justify-between `}>
             <Text style={tw`text-lg font-bold text-white`}>{item.name}</Text>
             <View style={tw`flex-row `}>
-            <TouchableOpacity>
-              <Image source={require('../../assets/images/premium.png')} style={tw`w-5 h-5 `} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image source={require('../../assets/images/heart.png')} style={tw`w-5 h-5 ml-2`} />
-            </TouchableOpacity>
+              <TouchableOpacity>
+                <Image source={require('../../assets/images/premium.png')} style={tw`w-5 h-5 `} />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image source={require('../../assets/images/heart.png')} style={tw`w-5 h-5 ml-2`} />
+              </TouchableOpacity>
             </View>
           </View>
           <Text style={tw`text-yellow-500`}>{item.time}</Text>
@@ -42,7 +44,14 @@ const SearchListPage = () => {
             end={{ x: 1, y: 0 }}
             style={tw`rounded-xl w-113px h-24px items-center justify-center`}
           >
-            <TouchableOpacity style={tw`w-full h-full items-center justify-center`}>
+            <TouchableOpacity
+              style={tw`w-full h-full items-center justify-center`}
+              onPress={() => {
+                if (item.id === '1') {
+                  navigation.navigate('TicketOption');
+                }
+              }}
+            >
               <Text style={tw`text-white text-sm items-center justify-center`}>Watch Now</Text>
             </TouchableOpacity>
           </LinearGradient>
@@ -52,19 +61,18 @@ const SearchListPage = () => {
   );
 
   return (
-    <View style={tw`flex-1  bg-black`}>
+    <View style={tw`flex-1 bg-black`}>
       <Image
-    source={require('../../assets/images/search.png')}
-    style={tw`absolute right-4 mt-4  w-6 h-6`}
-  />
+        source={require('../../assets/images/search.png')}
+        style={tw`absolute right-4 mt-4  w-6 h-6`}
+      />
       <TextInput
-        style={tw`h-12 bg-white bg-opacity-15 rounded-md   text-white m-2`}
+        style={tw`h-12 bg-white bg-opacity-15 rounded-md text-white m-2`}
         placeholder="Search Movie By Name"
         placeholderTextColor="#848484"
         value={searchQuery}
-       onChangeText={(text) => setSearchQuery(text)}
-     />
-
+        onChangeText={(text) => setSearchQuery(text)}
+      />
       <FlatList
         data={items}
         keyExtractor={(item) => item.id}
@@ -77,7 +85,3 @@ const SearchListPage = () => {
 };
 
 export default SearchListPage;
-
-
-
-

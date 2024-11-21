@@ -22,6 +22,10 @@ const CustomNavBar = () => {
       >
         <Image source={require('../../assets/images/navPlay.png')} style={tw`w-6 h-6`} resizeMode="contain" />
       </TouchableOpacity>
+      <TouchableOpacity style={tw`flex-row items-center`} onPress={() => navigation.navigate('Download')}
+      >
+        <Image source={require('../../assets/images/navDownload.png')} style={tw`w-6 h-6`} resizeMode="contain" />
+      </TouchableOpacity>
 
 
 
@@ -39,6 +43,10 @@ const CustomNavBar = () => {
       <TouchableOpacity style={tw`flex-row items-center`} onPress={() => navigation.navigate('Download')}
       >
         <Image source={require('../../assets/images/navDownload.png')} style={tw`w-6 h-6`} resizeMode="contain" />
+      </TouchableOpacity>
+      <TouchableOpacity style={tw`flex-row items-center`} onPress={() => navigation.navigate('profile')}
+      >
+        <Image source={require('../../assets/images/user.png')} style={tw`w-6 h-6`} resizeMode="contain" />
       </TouchableOpacity>
     </View>
   );

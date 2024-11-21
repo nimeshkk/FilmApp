@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import tw from 'twrnc';
 import CustomNavBar from '../navigationbar/navBar';
+import { useNavigation } from '@react-navigation/native';
 
 const TicketOption = () => {
+  const navigation = useNavigation();
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleSelectItem = (price) => {
@@ -51,7 +53,7 @@ const TicketOption = () => {
         )}
       </View>
       <View style={tw`flex-1 items-center justify-center`}>
-        <TouchableOpacity style={tw`bg-red-500 rounded-2xl p-4 w-90% items-center`}>
+        <TouchableOpacity style={tw`bg-red-500 rounded-2xl p-4 w-90% items-center`} onPress={() => navigation.navigate('paymentsuscess')}>
           <Text style={tw`text-white text-lg`}>Pay Now</Text>
         </TouchableOpacity>
       </View>

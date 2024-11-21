@@ -28,6 +28,8 @@ import TicketOption from './src/presentation/ticketOption/ticketOption';
 import VideoPlay from './src/presentation/videoPlay/videoPlay';
 import DownloadedListPage from './src/presentation/DownloadPage/downloadPage';
 import SignInSignUpHome from './src/presentation/SignInSignUpHome/signInSignUpHome';
+import ProfilePage from './src/presentation/profile/profile';
+import PaymentSuccess from './src/presentation/paymentSuccess/paymentSuccess';
 
 
 
@@ -71,6 +73,8 @@ function App(): JSX.Element {
         <Stack.Screen name="TicketOption" component={TicketOption} />
         <Stack.Screen name="Videoplay" component={VideoPlay} />
         <Stack.Screen name="Download" component={DownloadedListPage} />
+        <Stack.Screen name="profile" component={ProfilePage} />
+        <Stack.Screen name="paymentsuscess" component={PaymentSuccess} />
       </Stack.Navigator>
     </NavigationContainer>
     </SafeAreaProvider>
